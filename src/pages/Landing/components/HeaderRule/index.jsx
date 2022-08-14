@@ -1,22 +1,32 @@
 import pope from 'assets/img/pope-francis.png';
 import popetwox from 'assets/img/pope-francis.@2x.png';
-
-import { Header, DivContainer, Section } from 'views/Tags/BlockLevel';
-import { Span } from 'views/Tags/Text';
-import { VoteCard } from 'components/Vote/VoteCard';
-import { Image } from 'views/Tags/Picture';
+import { diffInText } from 'config/date.utils';
+import { Text } from 'config/TextConstants';
 import { CharacterModel } from 'model/character.model';
+import { VotesModel } from 'model/votes.model';
+import { VoteCard } from 'components/Vote/VoteCard';
+import { Span, WhiteSpace } from 'views/Tags/Text';
+import { Image } from 'views/Tags/Picture';
+import { Header, DivContainer, Section } from 'views/Tags/BlockLevel';
+import { useStyles } from './styles';
+
+const getPopeFrancis = () => {
+    const votes = new VotesModel(38, 62).build();
+    let lastUpdated = new Date();
+    lastUpdated.setDate(lastUpdated.getDate() - 1);
+    const description = "He’s talking tough on clergy sexual abuse, or is he just another pervert protector? (thumbs down) or a true pedophile punishing pontiff? (thumbs up)";
+    return new CharacterModel('Pope Francis?', description, 'religion',
+                pope, popetwox, votes, lastUpdated).build();
+}
 
 export const HeaderRule = () => {
+    const classes = useStyles();
+    const classGaugeTitle = 'closing-gauge__title '.concat(classes.closingTitleXS);
+    const classGaugeNumber = 'closing-gauge__number '.concat(classes.closingTextXS);
+    const classGaugeDesc = 'closing-gauge__desc '.concat(classes.closingTextXS);
     const cardTitle = "What's your opinion on";
-    const description = "He’s talking tough on clergy sexual abuse, or is he just another pervert protector? (thumbs down) or a true pedophile punishing pontiff? (thumbs up)";
-    const character = new CharacterModel(
-                            'Pope Francis?',
-                            description,
-                            'religion',
-                            pope,
-                            popetwox)
-                            .build();
+    const character = getPopeFrancis();
+    const objDate = diffInText(character.lastUpdated, new Date());
     return (
         <Header className='hero'>
             <Image
@@ -33,11 +43,12 @@ export const HeaderRule = () => {
             </Section>
             <Section className='hero__closing-gauge'>
                 <DivContainer className='closing-gauge__left'>
-                    <Span className='closing-gauge__title'>closing in</Span>
+                    <Span className={classGaugeTitle}>{ Text.ClosingIn }</Span>
                 </DivContainer>
                 <DivContainer className='closing-gauge__right'>
-                    <Span className='closing-gauge__number'>22</Span>
-                    <Span className='closing-gauge__desc'>days</Span>
+                    <Span className={classGaugeNumber}>{ objDate.mainNumber }</Span>
+                    <WhiteSpace />
+                    <Span className={classGaugeDesc}>{ objDate.text }</Span>
                 </DivContainer>
             </Section>
         </Header>
