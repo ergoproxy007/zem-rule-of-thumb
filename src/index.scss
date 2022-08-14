@@ -175,7 +175,7 @@ hr[role="separator"] {
   &__background {
     position: absolute;
     object-fit: cover;
-    @include herobackground(0, 0, -35vw, 100%);
+    @include herobackground(0, -35vw, 160vw, 100%);
   }
 
   &__featured-card {
@@ -237,7 +237,7 @@ hr[role="separator"] {
   max-height: 10.5rem;
   margin: 1rem 0;
   -webkit-box-orient: vertical;
-  font-size: 1.25rem;
+  font-size: 0.9rem;
   font-weight: 300;
   -webkit-line-clamp: 6;
   text-overflow: ellipsis;
@@ -254,12 +254,15 @@ hr[role="separator"] {
 }
 
 .featured-card__buttons > .icon-button {
-  width: 50%;
   height: 2.75rem;
 }
 
 .featured-card__buttons > .icon-button > img {
-  max-width: 1.25rem;
+  max-width: 1.9rem;
+}
+
+.featured-card__buttons > .icon-button > h1 {
+  font-size: 15px;
 }
 
 .closing-gauge__left {
@@ -570,6 +573,19 @@ main h2 {
       font-size: 18px;
   }
 
+  .thumb-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .thumb-image {
+    font-size: 1.2rem !important;
+  }
+
+  .thumb-text {
+    font-size: 1.2rem !important;
+  }
+
   .max-centered {
       position: relative;
       display: block;
@@ -666,8 +682,9 @@ main h2 {
   }
 
   .featured-card__desc {
-      max-width: 85%;
+      max-width: 87%;
       margin: 2rem 0 1rem;
+      font-size: 1.25rem;
   }
 
   .featured-card__cta {

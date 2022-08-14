@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const DivContainer = styled.div``
 
+export const Nav = styled.nav``
+
 export const Header = styled.header``
 
 export const Main = styled.main``
