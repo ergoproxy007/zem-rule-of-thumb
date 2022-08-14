@@ -1,34 +1,9 @@
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import thumbsUp from 'assets/img/thumbs-up.svg';
 import thumbsDown from 'assets/img/thumbs-down.svg';
 import { Article, Section, DivContainer, Header, Main, Footer } from 'views/Tags/BlockLevel'
 import { H2, CustomParagraph, Paragraph } from 'views/Tags/Text';
-import { Button } from 'views/Tags/Form/Action';
-import { CustomImage } from 'views/Tags/Picture';
-
-const ThumbText = styled.h1`
-    padding-left: ${(props) => props.$left};
-    padding-right: ${(props) => props.$right};
-    color: white;
-`
-
-const ThumbButton = styled(Button)`
-    width: ${(props) => props.$width};
-`
-
-const Thumb = (props) => {
-    const porcentage = props.count.concat('%');
-    const left = props.isReverse ? '0px' : '8px';
-    const right = props.isReverse ? '8px' : '0px';
-    return (
-        <ThumbButton className="icon-button thumb-button" aria-label={props.thumbAlt}
-                     $width={porcentage} $isReverse={props.isReverse} >
-            <CustomImage className="thumb-image" src={props.icon} alt={props.thumbAlt} $left={left} $right={right} />
-            <ThumbText className="thumb-text" $left={left} $right={right}>{ porcentage }</ThumbText>
-        </ThumbButton>
-    );
-}
+import { Thumb } from 'components/Vote/Thumb';
 
 export const VoteCard = ({ title, character }) => {
     return (
@@ -56,8 +31,8 @@ export const VoteCard = ({ title, character }) => {
                     </Paragraph>
                 </Main>
                 <Footer className="featured-card__buttons">
-                    <Thumb icon={thumbsUp} thumbAlt={'thumbs up'} count={'40'} />
-                    <Thumb icon={thumbsDown} thumbAlt={'thumbs down'} count={'60'} isReverse={true} />
+                    <Thumb icon={thumbsUp} thumbAlt={'thumbs up'} votes={'40'} />
+                    <Thumb icon={thumbsDown} thumbAlt={'thumbs down'} votes={'60'} isReverse={true} />
                 </Footer>
             </Section>
         </Article>
