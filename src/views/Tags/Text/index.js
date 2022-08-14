@@ -10,4 +10,13 @@ export const H1 = styled.h1``
 
 export const H2 = styled.h2``
 
-export const Span = styled.span``
+export const Span = styled.span`
+    font-size: ${(props) => props.$fontSize}
+`
+
+export const WhiteSpace = styled.span`
+    white-space: pre-wrap;
+    &:after {
+        content: '  ';
+    }
+`

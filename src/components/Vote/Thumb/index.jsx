@@ -32,12 +32,12 @@ const ThumbButton = styled(Button)`
 `
 
 export const Thumb = (props) => {
-    const porcentage = props.votes.concat('%');
+    const porcentage = props.voteValue.toString().concat('%');
     const left = props.isReverse ? '0px' : '8px';
     const right = props.isReverse ? '8px' : '0px';
     return (
         <ThumbButton className="icon-button" aria-label={props.thumbAlt}
-                    $width={porcentage} $isReverse={props.isReverse} >
+                     $width={porcentage} $isReverse={props.isReverse} >
             <ThumbImage src={props.icon} alt={props.thumbAlt} $left={left} $right={right} />
             <ThumbText $left={left} $right={right}>{ porcentage }</ThumbText>
         </ThumbButton>
@@ -45,7 +45,7 @@ export const Thumb = (props) => {
 }
 
 Thumb.propTypes = {
-    votes: PropTypes.string.isRequired,
+    voteValue: PropTypes.number.isRequired,
     isReverse: PropTypes.bool,
     thumbAlt: PropTypes.string,
     icon: PropTypes.any
