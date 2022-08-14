@@ -1,4 +1,5 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { NavBar } from 'pages/Landing/components/NavBar';
 import { HeaderRule } from 'pages/Landing/components/HeaderRule';
 import { Container } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
@@ -21,6 +22,8 @@ const LandingContainer = () => {
 
       <CssBaseline />
       
+      <NavBar />
+
       <HeaderRule />
 
     </StyledContainer>
