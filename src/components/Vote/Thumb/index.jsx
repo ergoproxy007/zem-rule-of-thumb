@@ -36,7 +36,7 @@ export const Thumb = (props) => {
     const left = props.isReverse ? '0px' : '8px';
     const right = props.isReverse ? '8px' : '0px';
     return (
-        <ThumbButton className="icon-button" aria-label={props.thumbAlt}
+        <ThumbButton className='icon-button' aria-label={props.thumbAlt}
                      $width={porcentage} $isReverse={props.isReverse} >
             <ThumbImage src={props.icon} alt={props.thumbAlt} $left={left} $right={right} />
             <ThumbText $left={left} $right={right}>{ porcentage }</ThumbText>

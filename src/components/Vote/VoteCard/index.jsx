@@ -30,8 +30,8 @@ export const VoteCard = ({ title, character }) => {
                     <Paragraph className="featured-card__cta">{ Text.CardVeredict }</Paragraph>
                 </Main>
                 <Footer className="featured-card__buttons">
-                    <Thumb icon={thumbsUp} thumbAlt={'thumbs up'} voteValue={character.votes.positive} />
-                    <Thumb icon={thumbsDown} thumbAlt={'thumbs down'} voteValue={character.votes.negative} isReverse={true} />
+                    <Thumb icon={thumbsUp} thumbAlt='thumbs up' voteValue={character.votes.positive} />
+                    <Thumb icon={thumbsDown} thumbAlt='thumbs down' voteValue={character.votes.negative} isReverse={true} />
                 </Footer>
             </Section>
         </Article>
