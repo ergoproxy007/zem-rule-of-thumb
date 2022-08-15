@@ -2,8 +2,8 @@ import { HorizontalList } from 'components/HorizontalList';
 
 export const MainRule = () => {
     return (
-      <main>
-        <HorizontalList />
+      <main role="main">
+        👉 Your code goes here 👈
       </main>
     );
 }

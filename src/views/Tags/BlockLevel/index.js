@@ -13,3 +13,5 @@ export const Footer = styled.footer``
 export const Article = styled.article``
 
 export const Section = styled.section``
+
+export const Aside = styled.aside``
