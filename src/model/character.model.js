@@ -21,7 +21,9 @@ class CharacterModel {
     }
 
     build() {
-        return { name: this.name, description: this.description, pictureOne: this.pictureOne, votes: this.votes, lastUpdated: this.lastUpdated };
+        return { name: this.name, description: this.description,
+                 pictureOne: this.pictureOne, pictureTwo: this.pictureTwo,
+                 votes: this.votes, lastUpdated: this.lastUpdated };
     }
 }
 

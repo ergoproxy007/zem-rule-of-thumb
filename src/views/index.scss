@@ -62,7 +62,6 @@
   position: relative;
   margin: 0 0 1rem;
   color: var(--color-dark-gray);
-  font-size: 2rem;
   font-weight: 400;
   text-align: center;
 }
@@ -79,7 +78,7 @@
   border: 2px solid var(--color-darker-background);
   background: transparent;
   color: var(--color-darker-gray);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 @media all and (min-width: 500px) {
@@ -122,6 +121,7 @@
 
   .banner-bottom .banner__cta {
       width: 16rem;
+      font-size: 1.5rem;
   } 
 }
 
@@ -143,5 +143,6 @@
 
   .banner-bottom .banner__cta {
       width: 20rem;
+      font-size: 1.5rem;
   }
 }

@@ -31,15 +31,13 @@ export const HeaderRule = () => {
         <Header className='hero'>
             <Image
                 className='hero__background'
-                srcSet={`${character.pictureOne} 750w, ${character.pictureOne} 1440w`}
+                srcSet={`${character.pictureOne} 750w, ${character.pictureTwo} 1440w`}
                 sizes='(min-width: 750px) 1440px, 100vw'
                 src={character.pictureOne}
                 alt='Pope Francis'
             />
             <Section className='max-centered'>
-                <VoteCard character={character}
-                    title={cardTitle}
-                />
+                <VoteCard character={character} title={cardTitle} />
             </Section>
             <Section className='hero__closing-gauge'>
                 <DivContainer className='closing-gauge__left'>
