@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/zem-rule-of-thumb/static/css/main.097b0b00.chunk.css",
+    "main.js": "/zem-rule-of-thumb/static/js/main.9386eaad.chunk.js",
+    "main.js.map": "/zem-rule-of-thumb/static/js/main.9386eaad.chunk.js.map",
+    "runtime-main.js": "/zem-rule-of-thumb/static/js/runtime-main.1e85a536.js",
+    "runtime-main.js.map": "/zem-rule-of-thumb/static/js/runtime-main.1e85a536.js.map",
+    "static/js/2.a109e513.chunk.js": "/zem-rule-of-thumb/static/js/2.a109e513.chunk.js",
+    "static/js/2.a109e513.chunk.js.map": "/zem-rule-of-thumb/static/js/2.a109e513.chunk.js.map",
+    "index.html": "/zem-rule-of-thumb/index.html",
+    "static/css/main.097b0b00.chunk.css.map": "/zem-rule-of-thumb/static/css/main.097b0b00.chunk.css.map",
+    "static/js/2.a109e513.chunk.js.LICENSE.txt": "/zem-rule-of-thumb/static/js/2.a109e513.chunk.js.LICENSE.txt",
+    "static/media/bg-people.36b10a09.png": "/zem-rule-of-thumb/static/media/bg-people.36b10a09.png",
+    "static/media/bg-people.@2x.f7a58480.png": "/zem-rule-of-thumb/static/media/bg-people.@2x.f7a58480.png",
+    "static/media/cristina.af2c96c3.png": "/zem-rule-of-thumb/static/media/cristina.af2c96c3.png",
+    "static/media/elon.00dd7f2b.png": "/zem-rule-of-thumb/static/media/elon.00dd7f2b.png",
+    "static/media/greta.bea2e755.png": "/zem-rule-of-thumb/static/media/greta.bea2e755.png",
+    "static/media/kanye.0eb1dff6.png": "/zem-rule-of-thumb/static/media/kanye.0eb1dff6.png",
+    "static/media/malala.663e9635.png": "/zem-rule-of-thumb/static/media/malala.663e9635.png",
+    "static/media/mark.8f6d5925.png": "/zem-rule-of-thumb/static/media/mark.8f6d5925.png",
+    "static/media/index.scss": "/zem-rule-of-thumb/static/media/pope-francis.7a1a9d7f.png",
+    "static/media/pope-francis.@2x.b6b9f1fc.png": "/zem-rule-of-thumb/static/media/pope-francis.@2x.b6b9f1fc.png",
+    "static/media/search.266421b2.svg": "/zem-rule-of-thumb/static/media/search.266421b2.svg",
+    "static/media/thumbs-down.dc667735.svg": "/zem-rule-of-thumb/static/media/thumbs-down.dc667735.svg",
+    "static/media/thumbs-up.29598dc3.svg": "/zem-rule-of-thumb/static/media/thumbs-up.29598dc3.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1e85a536.js",
+    "static/js/2.a109e513.chunk.js",
+    "static/css/main.097b0b00.chunk.css",
+    "static/js/main.9386eaad.chunk.js"
+  ]
+}
