@@ -94,44 +94,56 @@ export const ThumbClickable = styled(ThumbImage)`
     border: ${(props) => props.$border};
     cursor: pointer;
 `
+
 export const ThumbVoteNow = (props) => {
+    const initialState = {
+        emptyBoolean: false,
+        emptyString: '',
+    }
     const BORDER = '0.15rem solid #FFF';
     const { classIconDown, classIconUp, padding, iconDown, iconUp, eyebrow, setEyebrowText, votesGaugeBar } = props;
-    const [voteAgain, setVoteAgain] = useState(false);
-    const [thumbActive, setThumbActive] = useState('');
-    const [borderUp, setBorderUp] = useState('');
-    const [borderDown, setBorderDown] = useState('');
+    const [voteAgain, setVoteAgain] = useState(initialState.emptyBoolean);
+    const [thumbActive, setThumbActive] = useState(initialState.emptyString);
+    const [borderUp, setBorderUp] = useState(initialState.emptyString);
+    const [borderDown, setBorderDown] = useState(initialState.emptyString);
     const {
         data: { records },
-        mutations: { getCharactersUpdated, updateRecords }
+        mutations: { getCharactersUpdated, updateRecords, handleSaveVote }
     } = useContext(RuleContext);
     const characters = getCharactersUpdated(records);
+    
+    const saveVote = (activeState, borderUp, borderDown) => {
+        setThumbActive(activeState);
+        setBorderUp(borderUp);
+        setBorderDown(borderDown);
+    }
     const handleVoteUp = () => {
-        setThumbActive('POSITIVE');
-        setBorderUp(BORDER);
-        setBorderDown('');
+        saveVote('POSITIVE', BORDER, initialState.emptyString);
     }
     const handleVoteDown = () => {
-        setThumbActive('NEGATIVE');
-        setBorderUp('');
-        setBorderDown(BORDER);
+        saveVote('NEGATIVE', initialState.emptyString, BORDER);
+    }
+    const handleUpdateRecords = (positive, negative, character, updateCharacters, votesGaugeBar) => {
+        setEyebrowText('Thank you for your vote!');
+        setVoteAgain(true);
+        character.votes = {positive: positive, negative: negative};
+        updateCharacters.push(character);
+        updateRecords(updateCharacters);
+        handleSaveVote(votesGaugeBar);
     }
     const handleVoteNow = () => {
+        let update = false;
         const character = characters.find(r => r.id === votesGaugeBar.id);
         const updateCharacters = characters.filter(r => r.id !== votesGaugeBar.id);
         if (thumbActive === 'POSITIVE') {
-            setEyebrowText('Thank you for your vote!');
-            setVoteAgain(true);
-            character.votes = {positive: votesGaugeBar.positive + 1, negative: votesGaugeBar.negative};
-            updateCharacters.push(character);
-            updateRecords(updateCharacters);
-            
+            votesGaugeBar.positive = votesGaugeBar.positive + 1;
+            update = true;
         } else if (thumbActive === 'NEGATIVE') {
-            setEyebrowText('Thank you for your vote!');
-            setVoteAgain(true);
-            character.votes = {positive: votesGaugeBar.positive, negative: votesGaugeBar.negative + 1};
-            updateCharacters.push(character);
-            updateRecords(updateCharacters);
+            votesGaugeBar.negative = votesGaugeBar.negative + 1;
+            update = true;
+        }
+        if (update) {
+            handleUpdateRecords(votesGaugeBar.positive, votesGaugeBar.negative, character, updateCharacters, votesGaugeBar);
         }
     }
     const handleVoteAgain = () => {

@@ -26,18 +26,32 @@ export const RuleProvider = ({ children }) => {
     const [records, setRecords] = useState([]);
     const [dataApplied, setDataApplied] = useState(false);
 
-    const handleSaveVote = (id, positive, negative) => {
+    const handleSaveVote = (votesGaugeBar) => {
         const voteStore = {
-            positive: positive,
-            negative: negative
-          };
-        localStorage.setItem(`voteStore-${id}`, JSON.stringify(voteStore));
+            id: votesGaugeBar.id,
+            positive: votesGaugeBar.positive,
+            negative: votesGaugeBar.negative
+        };
+        const valueToStorage = JSON.stringify(voteStore);
+        localStorage.setItem(`voteStore-${voteStore.id}`, valueToStorage);
     }
 
     const updateRecords = (characters) => {
         setRecords(characters);
     }
 
+    const restoreVotesSaved = (characters) => {
+        if (characters) {
+            return characters?.map((element) => {
+                const voteStore = JSON.parse(localStorage.getItem(`voteStore-${element.id}`));
+                if (voteStore) {
+                    element.votes = {positive: voteStore.positive, negative: voteStore.negative};
+                }
+                return element;
+           });
+        }
+        return characters;
+    }
     const getCharactersUpdated = (characters) => {
         if (characters?.data && characters.data.length > 0) {
             const array = [];
@@ -48,9 +62,9 @@ export const RuleProvider = ({ children }) => {
                 }
                 array.push(element);
             });
-            return array;
+            return restoreVotesSaved(array);
         }
-        return characters;
+        return restoreVotesSaved(characters);
     }
 
     useEffect(() => {

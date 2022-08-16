@@ -32,7 +32,7 @@ export const FooterRule = () => {
     const classFooter = 'footer '.concat(classes.footer);
     return (
         <footer className='footer'>
-          <div class="footer__links">
+          <div className="footer__links">
               <ul>
                   <li>
                       <a href="#">Terms and Conditions</a>
