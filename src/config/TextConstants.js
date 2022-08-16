@@ -3,4 +3,5 @@ export const Text = {
     MoreInformation: 'More information',
     ClosingIn: 'closing in',
     Days: 'days',
+    PreviousRulings: 'Previous Rulings',
 }

@@ -39,12 +39,15 @@ const ThumbButton = styled(Button)`
 `
 
 export const Thumb = (props) => {
-    const porcentage = props.voteValue.toString().concat('%');
+    const result = ((props.voteValue / props.totalVotes) * 100).toFixed(1);
+    const porcentage = result.toString().concat('%');
     const left = props.isReverse ? '0px' : '8px';
     const right = props.isReverse ? '8px' : '0px';
+    const SeparatorLeft = () => <>{props.separator}</>
     return (
         <ThumbButton className='icon-button' aria-label={props.thumbAlt}
-                     $width={porcentage} $isReverse={props.isReverse} >
+                     $width={porcentage} $isReverse={props.isReverse} style={props.newStyles}>
+            <SeparatorLeft />
             <ThumbImage src={props.icon} alt={props.thumbAlt} $left={left} $right={right} />
             <ThumbText $left={left} $right={right}>{ porcentage }</ThumbText>
         </ThumbButton>
@@ -52,10 +55,9 @@ export const Thumb = (props) => {
 }
 
 export const ThumbTitle = (props) => {
-    const classImage = 'color-green-positive';
     return (
         <ThumbButton className='icon-button'>
-            <ThumbImage className={classImage} src={props.icon} style={{ height: '50%' }}
+            <ThumbImage className={props.classIcon} src={props.icon} style={{ height: '50%' }}
                         $left={props.padding} $right={props.padding} $top={props.padding} $bottom={props.padding} />
             <ThumbText $left='5px'>{ props.text }</ThumbText>
         </ThumbButton>
@@ -66,5 +68,6 @@ Thumb.propTypes = {
     voteValue: PropTypes.number.isRequired,
     isReverse: PropTypes.bool,
     thumbAlt: PropTypes.string,
-    icon: PropTypes.any
+    icon: PropTypes.any,
+    separator: PropTypes.node
 }

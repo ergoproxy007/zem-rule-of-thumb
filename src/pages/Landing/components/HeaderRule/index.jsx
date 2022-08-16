@@ -11,7 +11,7 @@ import { Header, DivContainer, Section } from 'views/Tags/BlockLevel';
 import { useStyles } from './styles';
 
 const getPopeFrancis = () => {
-    const votes = new VotesModel(38, 62).build();
+    const votes = new VotesModel(55, 90).build();
     let lastUpdated = new Date();
     lastUpdated.setDate(lastUpdated.getDate() - 1);
     const description = "He’s talking tough on clergy sexual abuse, or is he just another pervert protector? (thumbs down) or a true pedophile punishing pontiff? (thumbs up)";

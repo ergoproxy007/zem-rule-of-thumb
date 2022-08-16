@@ -51,6 +51,10 @@ hr[role="separator"] {
   background-color: rgba(var(--color-green-positive), .8);
 }
 
+.color-yellow-negative {
+  background-color: rgba(var(--color-yellow-negative), 0.8);
+}
+
 .icon-button {
   padding: 0;
   border: 0;
@@ -79,11 +83,11 @@ hr[role="separator"] {
 }
 
 .nav {
-  position: fixed;
+  position: absolute;
   z-index: 2;
   top: 0;
   display: flex;
-  width: calc(100vw - 2rem);
+  width: calc(100vw - 1rem);
   min-height: 10rem;
   justify-content: space-between;
   padding: 0 1rem;
@@ -313,6 +317,10 @@ hr[role="separator"] {
   color: var(--color-dark-gray);
   font-size: 1.5rem;
   font-weight: 300;
+}
+
+.resize-img {
+  width: 30% !important;
 }
 
 main[role="main"] {
@@ -568,7 +576,6 @@ main h2 {
   .featured-card__buttons > .icon-button > img {
       max-width: 2rem;
       height: 2rem;
-      margin: 1.3rem 0;
   }
 
   .closing-gauge__left {
@@ -600,4 +607,14 @@ main h2 {
   hr[role="separator"] {
       margin: 2rem 0;
   }
+}
+
+/* Material UI Component - Styles Modifications */
+.MuiImageListItemBar-titleWrap {
+  margin-left: 1px !important;
+  margin-right: 1px !important;
+}
+
+select {
+  text-align: center;
 }

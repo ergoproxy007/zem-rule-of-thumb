@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
-export const Paragraph = styled.p``
+export const Paragraph = styled.p`
+    font-size: ${(props) => props.$fontSize};
+`
 
 export const CustomParagraph = styled.p`
+    text-align: ${(props) => props.$textAlign};
     font-size: ${(props) => props.$fontSize};
     font-family: ${(props) => props.$family};
     font-weight: ${(props) => props.$weight};

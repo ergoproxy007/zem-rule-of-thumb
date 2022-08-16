@@ -4,7 +4,10 @@ export const diffInText = (dateTo, dateFrom) => {
     const objDate = { mainNumber: null, text: null }
     try {
         const diffDays = differenceInDays(dateTo, dateFrom)
-        if (diffDays >= 0 && diffDays < 31) {
+        if (diffDays >= -31 && diffDays < 0) {
+          objDate.mainNumber = diffDays + 1
+          objDate.text = 'days'
+        } else if (diffDays >= 0 && diffDays < 31) {
           objDate.mainNumber = diffDays + 1
           objDate.text = 'days'
         } else {
@@ -17,7 +20,6 @@ export const diffInText = (dateTo, dateFrom) => {
             const months = (dif -1 ) - (years * 12)
             objDate.mainNumber = -1 * (years + 1)
             if (months !== 0) {
-              console.log("year", years);
               objDate.text = (years+1) === -1 ? `year ${months} months` : `years ${months} months`
             } else {
               objDate.text = (years+1) === -1 ? 'year' : 'years'

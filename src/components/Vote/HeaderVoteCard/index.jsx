@@ -7,6 +7,7 @@ import { H2, CustomParagraph, Paragraph } from 'views/Tags/Text';
 import { Thumb } from 'components/Vote/Thumb';
 
 export const HeaderVoteCard = ({ title, character }) => {
+    const totalVotes = character.votes.positive + character.votes.negative;
     return (
         <Article className="hero__featured-card">
             <DivContainer className="featured-card__glass-background"></DivContainer>
@@ -30,8 +31,8 @@ export const HeaderVoteCard = ({ title, character }) => {
                     <Paragraph className="featured-card__cta">{ Text.CardVeredict }</Paragraph>
                 </Main>
                 <Footer className="featured-card__buttons">
-                    <Thumb icon={thumbsUp} thumbAlt='thumbs up' voteValue={character.votes.positive} />
-                    <Thumb icon={thumbsDown} thumbAlt='thumbs down' voteValue={character.votes.negative} isReverse={true} />
+                    <Thumb icon={thumbsUp} thumbAlt='thumbs up' voteValue={character.votes.positive} totalVotes={totalVotes} />
+                    <Thumb icon={thumbsDown} thumbAlt='thumbs down' voteValue={character.votes.negative} totalVotes={totalVotes} isReverse={true} />
                 </Footer>
             </Section>
         </Article>

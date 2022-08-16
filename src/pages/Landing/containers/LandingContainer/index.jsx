@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,6 +8,7 @@ import { MainRule } from 'pages/Landing/components/MainRule';
 import { DivContainer } from "views/Tags/BlockLevel";
 import { BannerTop } from 'views/AsideBanner/BannerTop';
 import { BannerBottom } from 'views/AsideBanner/BannerBottom';
+import { typeviews } from 'context/helper/store.helper';
 
 const StyledContainer = withStyles((props) => {
   return ({
@@ -21,6 +23,8 @@ const StyledContainer = withStyles((props) => {
 })(Container);
 
 const LandingContainer = () => {
+  const [currentOption, setCurrentOption] = useState('');
+  const NONE = 'None';
   return (
     <StyledContainer maxWidth='xl' xs={12}>
 
@@ -32,7 +36,10 @@ const LandingContainer = () => {
 
       <DivContainer className='max-centered'>
         <BannerTop />
-        <MainRule />
+        <MainRule options={typeviews}
+                  currentOption={currentOption}
+                  handleCurrentOption={setCurrentOption}
+                  defaultValue={NONE} />
         <BannerBottom />
       </DivContainer>
 
