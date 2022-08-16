@@ -4,4 +4,6 @@ export const Text = {
     ClosingIn: 'closing in',
     Days: 'days',
     PreviousRulings: 'Previous Rulings',
+    VoteNow: 'Vote Now',
+    VoteAgain: 'Vote Again',
 }

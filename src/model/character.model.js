@@ -8,9 +8,10 @@
  * @param pictureTwo: character picture for mobile or descktop
  * @param lastUpdated: latest news update
  * @param votes: positives or negatives votes
+ * @param id: id for unique key
  */
 class CharacterModel {
-    constructor(name, description, category, pictureOne, pictureTwo, votes, lastUpdated) {
+    constructor(name, description, category, pictureOne, pictureTwo, votes, lastUpdated, id) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -18,12 +19,13 @@ class CharacterModel {
         this.pictureTwo = pictureTwo;
         this.votes = votes;
         this.lastUpdated = lastUpdated;
+        this.id = id;
     }
 
     build() {
         return { name: this.name, description: this.description,
                  pictureOne: this.pictureOne, pictureTwo: this.pictureTwo,
-                 votes: this.votes, lastUpdated: this.lastUpdated };
+                 votes: this.votes, lastUpdated: this.lastUpdated, id: this.id };
     }
 }
 

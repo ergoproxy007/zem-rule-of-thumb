@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import thumbsUp from 'assets/img/thumbs-up.svg';
 import thumbsDown from 'assets/img/thumbs-down.svg';
 import { diffInText } from 'config/date.utils';
@@ -9,7 +9,7 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import { DivContainer } from 'views/Tags/BlockLevel';
 import { CustomParagraph } from 'views/Tags/Text';
-import { Thumb, ThumbTitle } from 'components/Vote/Thumb';
+import { Thumb, ThumbTitle, ThumbVoteNow } from 'components/Vote/Thumb';
 import { LIMIT_VOTE } from 'context/helper/store.helper';
 import { CenterContainer } from './styles'
 
@@ -40,8 +40,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HeaderCard = ({ name, votes }) => {
-  const classIcon = votes.positive > LIMIT_VOTE ? 'color-green-positive' :  'color-yellow-negative';
-  const thumbsIcon = votes.positive > LIMIT_VOTE ? thumbsUp : thumbsDown;
+  const totalVotes = votes.positive + votes.negative;
+  const result = ((votes.positive / totalVotes) * 100).toFixed(1);
+  const classIcon = result > LIMIT_VOTE ? 'color-green-positive' :  'color-yellow-negative';
+  const thumbsIcon = result > LIMIT_VOTE ? thumbsUp : thumbsDown;
   return (
     <DivContainer style={{ display: 'flex' }}>
         <ThumbTitle icon={thumbsIcon} classIcon={classIcon} text={name} padding='7px' />
@@ -49,17 +51,30 @@ const HeaderCard = ({ name, votes }) => {
   )
 }
 
-const CenterCard = ({ description, category, lastUpdated }) => {
+const CenterCard = ({ id, description, category, lastUpdated, votes }) => {
     const dateTo = new Date(lastUpdated);  
     const objDate = diffInText(dateTo, new Date());
+    const eyebrow = `${objDate.mainNumber} ${objDate.text} ago in ${category}`;
+    const [eyebrowText, setEyebrowText] = useState(eyebrow);
+    const votesGaugeBar = { id: id, ...votes };
     return (
         <CenterContainer>
             <CustomParagraph $family='Lato' $spaces='break-spaces' $lineHeight='1.2'>
               { description }
             </CustomParagraph>
             <CustomParagraph $fontSize='0.6rem' $weight='bold' $family='Lato' $textAlign='right'>
-              {`${objDate.mainNumber} ${objDate.text} ago in ${category}`}
+              { eyebrowText }
             </CustomParagraph>
+            <ThumbVoteNow
+              iconUp={thumbsUp}
+              iconDown={thumbsDown}
+              padding='7px'
+              classIconUp='color-green-positive'
+              classIconDown='color-yellow-negative'
+              eyebrow={eyebrow}
+              setEyebrowText={setEyebrowText}
+              votesGaugeBar={votesGaugeBar}
+              />
         </CenterContainer>
     );
 }
@@ -67,7 +82,7 @@ const CenterCard = ({ description, category, lastUpdated }) => {
 const FooterCard = ({ votes }) => {
   const totalVotes = votes.positive + votes.negative;
   return (
-    <DivContainer className="featured-card__buttons" style={{ paddingBottom: '40px' }}>
+    <DivContainer className='featured-card__buttons' style={{ paddingBottom: '40px' }}>
       <Thumb icon={thumbsUp} thumbAlt='thumbs up' voteValue={votes.positive} totalVotes={totalVotes} newStyles={ { justifyContent: 'start' } }
              separator={<span style={{ color: 'rgba(var(--color-yellow-negative), 0)' }}>|||||</span>} />
       <Thumb icon={thumbsDown} thumbAlt='thumbs down' voteValue={votes.negative} totalVotes={totalVotes} isReverse={true} newStyles={ { justifyContent: 'end' } }
@@ -124,7 +139,7 @@ export default function VoteCard(props) {
             <ImageListItemBar style={rgbaImage}
               titlePosition='top'
               title={ <HeaderCard name={item.name} votes={item.votes} /> }
-              subtitle={<CenterCard description={item.description} category={item.category} lastUpdated={item.lastUpdated} />}
+              subtitle={<CenterCard id={item.id} description={item.description} category={item.category} lastUpdated={item.lastUpdated} votes={item.votes} />}
             />
             <ImageListItemBar
               titlePosition='bottom'

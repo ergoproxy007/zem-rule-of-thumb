@@ -24,10 +24,23 @@ export const RuleContext = createContext(initialState);
  */
 export const RuleProvider = ({ children }) => {
     const [records, setRecords] = useState([]);
+    const [dataApplied, setDataApplied] = useState(false);
+
+    const handleSaveVote = (id, positive, negative) => {
+        const voteStore = {
+            positive: positive,
+            negative: negative
+          };
+        localStorage.setItem(`voteStore-${id}`, JSON.stringify(voteStore));
+    }
+
+    const updateRecords = (characters) => {
+        setRecords(characters);
+    }
 
     const getCharactersUpdated = (characters) => {
-        const array = [];
         if (characters?.data && characters.data.length > 0) {
+            const array = [];
             characters.data.forEach(element => {
                 const object = initialState.pictures.find(picture => picture.name === element.picture);
                 if (object) {
@@ -35,14 +48,16 @@ export const RuleProvider = ({ children }) => {
                 }
                 array.push(element);
             });
+            return array;
         }
-        return array;
+        return characters;
     }
 
     useEffect(() => {
         (async () => {
-            if (data) {
+            if (!dataApplied && data) {
                 setRecords(data);
+                setDataApplied(true);
             }
         })()
     }, [records]);
@@ -52,7 +67,9 @@ export const RuleProvider = ({ children }) => {
             records
         },
         mutations: {
-            getCharactersUpdated
+            getCharactersUpdated,
+            handleSaveVote,
+            updateRecords
         }
     };
     return (

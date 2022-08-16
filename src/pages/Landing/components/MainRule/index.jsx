@@ -51,7 +51,7 @@ export const MainRule = ({ options, currentOption, defaultValue, handleCurrentOp
         <DivFlex>
           <CustomParagraph $fontSize='1.3rem'>{ Text.PreviousRulings }</CustomParagraph>
           <CustomDiv $display={display}>
-            <NativeSelect
+            <NativeSelect style={{ width: '150px' }}
               value={currentOption === defaultValue ? defaultValue : seletedValue.text}
               onChange={handleChange}
               inputProps={{
