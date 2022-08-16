@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/zem-rule-of-thumb/static/css/main.097b0b00.chunk.css",
-    "main.js": "/zem-rule-of-thumb/static/js/main.9386eaad.chunk.js",
-    "main.js.map": "/zem-rule-of-thumb/static/js/main.9386eaad.chunk.js.map",
+    "main.js": "/zem-rule-of-thumb/static/js/main.c49f495f.chunk.js",
+    "main.js.map": "/zem-rule-of-thumb/static/js/main.c49f495f.chunk.js.map",
     "runtime-main.js": "/zem-rule-of-thumb/static/js/runtime-main.1e85a536.js",
     "runtime-main.js.map": "/zem-rule-of-thumb/static/js/runtime-main.1e85a536.js.map",
     "static/js/2.a109e513.chunk.js": "/zem-rule-of-thumb/static/js/2.a109e513.chunk.js",
@@ -20,14 +20,14 @@
     "static/media/mark.8f6d5925.png": "/zem-rule-of-thumb/static/media/mark.8f6d5925.png",
     "static/media/index.scss": "/zem-rule-of-thumb/static/media/pope-francis.7a1a9d7f.png",
     "static/media/pope-francis.@2x.b6b9f1fc.png": "/zem-rule-of-thumb/static/media/pope-francis.@2x.b6b9f1fc.png",
-    "static/media/search.266421b2.svg": "/zem-rule-of-thumb/static/media/search.266421b2.svg",
-    "static/media/thumbs-down.dc667735.svg": "/zem-rule-of-thumb/static/media/thumbs-down.dc667735.svg",
-    "static/media/thumbs-up.29598dc3.svg": "/zem-rule-of-thumb/static/media/thumbs-up.29598dc3.svg"
+    "static/media/search.158dbe0f.svg": "/zem-rule-of-thumb/static/media/search.158dbe0f.svg",
+    "static/media/thumbs-down.505c186f.svg": "/zem-rule-of-thumb/static/media/thumbs-down.505c186f.svg",
+    "static/media/thumbs-up.5914198e.svg": "/zem-rule-of-thumb/static/media/thumbs-up.5914198e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.1e85a536.js",
     "static/js/2.a109e513.chunk.js",
     "static/css/main.097b0b00.chunk.css",
-    "static/js/main.9386eaad.chunk.js"
+    "static/js/main.c49f495f.chunk.js"
   ]
 }
