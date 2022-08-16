@@ -4,7 +4,7 @@ import { diffInText } from 'config/date.utils';
 import { Text } from 'config/TextConstants';
 import { CharacterModel } from 'model/character.model';
 import { VotesModel } from 'model/votes.model';
-import { VoteCard } from 'components/Vote/VoteCard';
+import { HeaderVoteCard } from 'components/Vote/HeaderVoteCard';
 import { Span, WhiteSpace } from 'views/Tags/Text';
 import { Image } from 'views/Tags/Picture';
 import { Header, DivContainer, Section } from 'views/Tags/BlockLevel';
@@ -37,7 +37,7 @@ export const HeaderRule = () => {
                 alt='Pope Francis'
             />
             <Section className='max-centered'>
-                <VoteCard character={character} title={cardTitle} />
+                <HeaderVoteCard character={character} title={cardTitle} />
             </Section>
             <Section className='hero__closing-gauge'>
                 <DivContainer className='closing-gauge__left'>

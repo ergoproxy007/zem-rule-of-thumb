@@ -1,9 +1,9 @@
-import { HorizontalList } from 'components/HorizontalList';
+import VoteCard from 'components/Vote/VoteCard';
 
 export const MainRule = () => {
     return (
       <main role="main">
-        👉 Your code goes here 👈
+        <VoteCard />
       </main>
     );
 }
