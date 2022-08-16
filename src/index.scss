@@ -47,6 +47,10 @@ hr[role="separator"] {
   margin: 1.5rem 1rem;
 }
 
+.color-green-positive {
+  background-color: rgba(var(--color-green-positive), .8);
+}
+
 .icon-button {
   padding: 0;
   border: 0;

@@ -6,6 +6,8 @@ import { Image } from 'views/Tags/Picture';
 export const ThumbImage = styled(Image)`
     padding-left: ${(props) => props.$left};
     padding-right: ${(props) => props.$right};
+    padding-top: ${(props) => props.$top};
+    padding-bottom: ${(props) => props.$bottom};
 
     @media all and (min-width: 1100px) {
         font-size: 1.2rem !important;
@@ -24,6 +26,11 @@ const ThumbText = styled.h1`
 
 const ThumbButton = styled(Button)`
     width: ${(props) => props.$width};
+    height: ${(props) => props.$height};
+    padding-left: ${(props) => props.$left};
+    padding-right: ${(props) => props.$right};
+    padding-top: ${(props) => props.$top};
+    padding-bottom: ${(props) => props.$bottom};
 
     @media all and (min-width: 1100px) {
         display: flex;
@@ -40,6 +47,17 @@ export const Thumb = (props) => {
                      $width={porcentage} $isReverse={props.isReverse} >
             <ThumbImage src={props.icon} alt={props.thumbAlt} $left={left} $right={right} />
             <ThumbText $left={left} $right={right}>{ porcentage }</ThumbText>
+        </ThumbButton>
+    );
+}
+
+export const ThumbTitle = (props) => {
+    const classImage = 'color-green-positive';
+    return (
+        <ThumbButton className='icon-button'>
+            <ThumbImage className={classImage} src={props.icon} style={{ height: '50%' }}
+                        $left={props.padding} $right={props.padding} $top={props.padding} $bottom={props.padding} />
+            <ThumbText $left='5px'>{ props.text }</ThumbText>
         </ThumbButton>
     );
 }
