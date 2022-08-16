@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
+import { VotesModel } from 'model/votes.model';
 import kanye from 'assets/img/kanye.png';
 import mark from 'assets/img/mark.png';
 import malala from 'assets/img/malala.png';
@@ -27,11 +28,7 @@ export const RuleProvider = ({ children }) => {
     const [dataApplied, setDataApplied] = useState(false);
 
     const handleSaveVote = (votesGaugeBar) => {
-        const voteStore = {
-            id: votesGaugeBar.id,
-            positive: votesGaugeBar.positive,
-            negative: votesGaugeBar.negative
-        };
+        const voteStore = new VotesModel(votesGaugeBar.positive, votesGaugeBar.negative, votesGaugeBar.id).build();
         const valueToStorage = JSON.stringify(voteStore);
         localStorage.setItem(`voteStore-${voteStore.id}`, valueToStorage);
     }
