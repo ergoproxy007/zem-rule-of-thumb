@@ -1,3 +1,9 @@
+# Rule of Thumb
+
+Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report. \
+Homepage: https://ergoproxy007.github.io/zem-rule-of-thumb \
+Repository: https://github.com/ergoproxy007/zem-rule-of-thumb.git
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -74,7 +80,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### `npm run build` fails to minify
-npm i styled-components,
-npm i sass --save-dev,
+### more npm utilities using in this project
+npm i styled-components\
+npm i sass --save-dev\
 npm i date-fns
+
+
+### Features
+
+1. Support:\
+   https://material-ui.com/getting-started/templates/album/
+   https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/album/Album.js
+2. Figma Desktop:\
+   https://www.figma.com/proto/NlQ6PjfanVO2YyuDUaohjx/Rule-of-Thumb---FED-Challenge?node-id=84%3A2585&scaling=min-zoom\
+3. Figma Mobile:\
+   https://www.figma.com/proto/NlQ6PjfanVO2YyuDUaohjx/Rule-of-Thumb---FED-Challenge?node-id=6%3A43&scaling=min-zoom
+4. Read about useContext in:\
+   https://medium.com/nerd-for-tech/using-react-context-the-right-way-cf5e011dc4ba
+5. Read about useEffect in:\
+   https://parrot.acamica.com/encuentros/29?group=FAR-ONLINE-SUMA-2
+6. hooks oficial:\
+   https://reactjs.org/docs/hooks-reference.html#usecontext
+7. deploy in gh-pages:\
+   https://platzi.com/tutoriales/1548-react/4065-guia-para-usar-github-pages-en-tus-proyectos-de-reactjs/
